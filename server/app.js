@@ -10,7 +10,7 @@ const path = require("path");
 const process = require("process");
 
 const PORT = process.env.PORT || 8000;
-const URL = process.env.MONGODB_URL;
+const URL = process.env.MONGODB_URL || "mongodb://localhost:27017/instaclone";
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
 const API_KEY = process.env.CLOUDINARY_API_KEY;
 const API_SECRET = process.env.CLOUDINARY_API_SECRET;
@@ -31,9 +31,6 @@ app.use(cors());
 // app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 
-const url =
-  "mongodb+srv://root:10xproject@cluster0.1eecfnq.mongodb.net/instaclone?retryWrites=true&w=majority" ||
-  "mongodb://localhost:27017/instaclone";
 // console.log(url);
 mongoose
   .connect(URL)
